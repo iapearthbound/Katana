@@ -438,7 +438,7 @@ void s5p_set_otg_dvfs(int enable)
 	}
 =======
   if (enable) {
-                s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L2); //800MHz lock
+                s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L5); //800MHz lock
         } else {
                 s5pv210_unlock_dvfs_high_level(DVFS_LOCK_TOKEN_8);
         }
@@ -463,7 +463,7 @@ int s3c_vbus_enable(struct usb_gadget *gadget, int enable)
 =======
 	 if (enable) {
   		dev_info(&gadget->dev, "USB udc %d,%d lock\n", dev->udc_enabled, enable);
-  		s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L2); //800MHz lock
+  		s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L5); //800MHz lock
  	} else {
   		dev_info(&gadget->dev, "USB udc %d,%d unlock\n", dev->udc_enabled, enable);
   		s5pv210_unlock_dvfs_high_level(DVFS_LOCK_TOKEN_8);
