@@ -34,6 +34,13 @@
 #include <mach/cpuidle.h>
 #include <mach/power-domain.h>
 
+<<<<<<< HEAD
+=======
+extern bool suspend_ongoing(void);
+extern bool bt_is_running(void);
+extern bool gps_is_running(void);
+
+>>>>>>> 8fba925... Quick Deep Idle bug fix
 /*
  * For saving & restoring VIC register before entering
  * didle mode
@@ -222,6 +229,10 @@ static void s5p_enter_didle(void)
 	unsigned long tmp;
 	unsigned long save_eint_mask;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8fba925... Quick Deep Idle bug fix
 	/* store the physical address of the register recovery block */
 	__raw_writel(phy_regs_save, S5P_INFORM2);
 
@@ -333,6 +344,10 @@ skipped_didle:
 	__raw_writel(vic_regs[1], S5P_VIC1REG(VIC_INT_ENABLE));
 	__raw_writel(vic_regs[2], S5P_VIC2REG(VIC_INT_ENABLE));
 	__raw_writel(vic_regs[3], S5P_VIC3REG(VIC_INT_ENABLE));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8fba925... Quick Deep Idle bug fix
 }
 #endif
 
