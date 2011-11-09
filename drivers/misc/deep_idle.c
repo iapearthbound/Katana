@@ -14,7 +14,17 @@
 
 #define DEEPIDLE_VERSION 1
 
+<<<<<<< HEAD
 static bool deepidle_enabled = true;
+=======
+#define NUM_IDLESTATES 3
+
+static DEFINE_MUTEX(lock);
+
+static bool deepidle_enabled = true;
+
+static unsigned long long num_idlecalls[NUM_IDLESTATES], time_in_idlestate[NUM_IDLESTATES]; 
+>>>>>>> 3592022... let's enable deep idle by default
 
 static ssize_t deepidle_status_read(struct device * dev, struct device_attribute * attr, char * buf)
 {
