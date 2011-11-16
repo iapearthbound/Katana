@@ -39,6 +39,7 @@
 extern bool suspend_ongoing(void);
 extern bool bt_is_running(void);
 extern bool gps_is_running(void);
+extern bool vibrator_is_running(void);
 
 >>>>>>> 8fba925... Quick Deep Idle bug fix
 /*
@@ -272,11 +273,19 @@ static void s5p_enter_didle(void)
 	/*
 	 * Wakeup source configuration for didle
 	 * We use the same wakeup mask as for sleep state plus make
+<<<<<<< HEAD
 	 * sure that at least RTC TICK and I2S are enabled as wakeup 
 	 * sources
 	 */
 	tmp = s3c_irqwake_intmask;
 	tmp &= ~((1<<2) | (1<<13));
+=======
+	 * sure that at least RTC ALARM, RTC TICK, KEY, I2S and ST are
+	 * enabled as wakeup sources
+	 */
+	tmp = s3c_irqwake_intmask;
+	tmp &= ~((1<<1) | (1<<2) | (1<<5) | (1<<13) | (1<<14));
+>>>>>>> e45cf64... Update Deep Idle
 	__raw_writel(tmp, S5P_WAKEUP_MASK);
 
 	/*
@@ -383,10 +392,21 @@ static int s5p_enter_idle_state(struct cpuidle_device *dev,
 #else
 	if (!deepidle_is_enabled() || check_power_clock_gating() || loop_sdmmc_check() || check_usbotg_op() || check_rtcint()) {
 #endif
+<<<<<<< HEAD
 	    s5p_enter_idle();
 	} else {
 	    s5p_enter_didle();
 	}
+=======
+            s5p_enter_idle();
+        } else if (bt_is_running() || gps_is_running() || vibrator_is_running()) {
+            s5p_enter_didle(true);
+            idle_state = 1;
+        } else {
+            s5p_enter_didle(false);
+            idle_state = 2;
+        }
+>>>>>>> e45cf64... Update Deep Idle
 #else   
 	s5p_enter_idle();
 #endif
@@ -493,6 +513,7 @@ err_resource:
 err_register_device:
 	cpuidle_unregister_device(device);
 #endif
+<<<<<<< HEAD
 err_register_driver:
 	cpuidle_unregister_driver(&s5p_idle_driver);
 err:
@@ -500,3 +521,12 @@ err:
 }
 
 device_initcall(s5p_init_cpuidle);
+=======
+    err_register_driver:
+        cpuidle_unregister_driver(&s5p_idle_driver);
+    err:
+        return ret;
+    }
+    
+    device_initcall(s5p_init_cpuidle);
+>>>>>>> e45cf64... Update Deep Idle
