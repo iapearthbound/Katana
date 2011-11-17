@@ -683,6 +683,18 @@ service bootanim /system/bin/bootanimation
     disabled
     oneshot
 
+<<<<<<< HEAD
+=======
+# Execute files in /system/etc/init.d thanks bxfxf
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+  oneshot
+
+# Include extra init file
+import /system/etc/init.local.rc
+
+    class_start default
+  
+>>>>>>> dae58f6... Added support for init.local.rc, thanks ugothakd(lame-ass:])
 service dbus /system/bin/dbus-daemon --system --nofork
     socket dbus stream 660 bluetooth bluetooth
     user bluetooth
