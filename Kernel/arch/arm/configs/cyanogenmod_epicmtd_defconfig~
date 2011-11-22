@@ -1,7 +1,11 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.35.7
+<<<<<<< HEAD
 # Wed Dec 14 05:35:43 2011
+=======
+# Mon Nov 21 16:46:06 2011
+>>>>>>> cd2a13e... Remove CIQ line from dpram. Creates TtyCIQ0 in /dev
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -878,7 +882,11 @@ CONFIG_MTD_PARTITIONS=y
 #
 # User Modules And Translation Layers
 #
+<<<<<<< HEAD
 CONFIG_MTD_CHAR=y
+=======
+# CONFIG_MTD_CHAR is not set
+>>>>>>> cd2a13e... Remove CIQ line from dpram. Creates TtyCIQ0 in /dev
 CONFIG_MTD_BLKDEVS=y
 CONFIG_MTD_BLOCK=y
 # CONFIG_FTL is not set
