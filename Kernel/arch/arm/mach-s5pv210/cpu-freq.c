@@ -923,13 +923,13 @@ static int s5pv210_cpufreq_notifier_event(struct notifier_block *this,
 }
 
 static struct freq_attr *s5pv210_cpufreq_attr[] = {
-<<<<<<< HEAD
+
 	&cpufreq_freq_attr_scaling_available_freqs,
 	NULL,
-=======
+
   &cpufreq_freq_attr_scaling_available_freqs,
   NULL,
->>>>>>> d74fc8f... Add 1.2GHz overclock and undervolt support
+
 };
 
 static struct cpufreq_driver s5pv210_cpufreq_driver = {
