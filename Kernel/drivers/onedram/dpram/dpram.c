@@ -3156,11 +3156,11 @@ static int multipdp_init(void)
 		{ .id = 1, .ifname = "ttyCSD" },
 		{ .id = 7, .ifname = "ttyCDMA" },
 		{ .id = 9, .ifname = "ttyTRFB" },
-<<<<<<< HEAD
+
 		//{ .id = 27, .ifname = "ttyCIQ" },
-=======
+
 		
->>>>>>> cd2a13e... Remove CIQ line from dpram. Creates TtyCIQ0 in /dev
+
 	};
 
 
