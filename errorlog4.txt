@@ -1,0 +1,312 @@
+make  
+************************************************************
+* EXPORT VARIABLE                                          *
+************************************************************
+PRJROOT=/home/steven/Android/Katana
+PROJECT_NAME=SPH-D700
+HW_BOARD_REV=03
+LD_LIBRARY_PATH=.:/home/steven/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/../lib
+************************************************************
+
+************************************************************
+* MAKE PACKAGES                                            *
+************************************************************
+* 1. kernel : zImage
+* 2. modules
+************************************************************
+************************************************************
+* Removing old zImage                                      *
+************************************************************
+* zImage removed
+************************************************************
+
+************************************************************
+* BUILD_KERNEL                                             *
+************************************************************
+
+~/Android/Katana/Kernel ~/Android/Katana
+  CLEAN   /home/steven/Android/Katana/Kernel
+  CLEAN   arch/arm/kernel
+  CLEAN   usr
+  CLEAN   .tmp_versions
+  CLEAN   scripts/basic
+  CLEAN   scripts/kconfig
+  CLEAN   scripts/mod
+  CLEAN   scripts
+  CLEAN   include/config include/generated
+  CLEAN   .config .version include/linux/version.h
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/docproc
+  HOSTCC  scripts/basic/hash
+  HOSTCC  scripts/kconfig/conf.o
+scripts/kconfig/conf.c: In function ‘conf_sym’:
+scripts/kconfig/conf.c:159:6: warning: variable ‘type’ set but not used [-Wunused-but-set-variable]
+scripts/kconfig/conf.c: In function ‘conf_choice’:
+scripts/kconfig/conf.c:231:6: warning: variable ‘type’ set but not used [-Wunused-but-set-variable]
+scripts/kconfig/conf.c:307:9: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+scripts/kconfig/conf.c: In function ‘conf_askvalue’:
+scripts/kconfig/conf.c:105:8: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+  HOSTCC  scripts/kconfig/kxgettext.o
+  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/lex.zconf.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+arch/arm/configs/cyanogenmod_epicmtd_defconfig:88:warning: invalid string found
+#
+# configuration written to .config
+#
+scripts/kconfig/conf -s arch/arm/Kconfig
+  CHK     include/linux/version.h
+  UPD     include/linux/version.h
+  CHK     include/generated/kernelversion.h
+  UPD     include/generated/kernelversion.h
+  CHK     include/generated/utsrelease.h
+  UPD     include/generated/utsrelease.h
+  HOSTCC  scripts/kallsyms
+  HOSTCC  scripts/conmakehash
+  CC      scripts/mod/empty.o
+  HOSTCC  scripts/mod/mk_elfconfig
+  MKELF   scripts/mod/elfconfig.h
+  HOSTCC  scripts/mod/file2alias.o
+  Generating include/generated/mach-types.h
+  HOSTCC  scripts/mod/modpost.o
+  CC      kernel/bounds.s
+  HOSTCC  scripts/mod/sumversion.o
+  GEN     include/generated/bounds.h
+  CC      arch/arm/kernel/asm-offsets.s
+  GEN     include/generated/asm-offsets.h
+  CALL    scripts/checksyscalls.sh
+  HOSTLD  scripts/mod/modpost
+  CHK     include/generated/compile.h
+  CC      init/main.o
+  CC      init/do_mounts.o
+  HOSTCC  usr/gen_init_cpio
+  UPD     include/generated/compile.h
+  CC      init/do_mounts_rd.o
+In file included from init/main.c:86:
+include/linux/kernel_sec_common.h:46:1: warning: "S3C_PA_WDT" redefined
+In file included from include/linux/kernel_sec_common.h:7,
+                 from init/main.c:86:
+arch/arm/mach-s5pv210/include/mach/map.h:215:1: warning: this is the location of the previous definition
+  GEN     usr/initramfs_data.cpio
+  AS      usr/initramfs_data.o
+  LD      usr/built-in.o
+  CC      init/do_mounts_initrd.o
+  CC      init/initramfs.o
+  CC      arch/arm/kernel/compat.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/kernel/compat.c:24:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      init/calibrate.o
+  CC      init/version.o
+  CC      arch/arm/kernel/elf.o
+  CC      arch/arm/mm/dma-mapping.o
+  LD      init/mounts.o
+  AS      arch/arm/kernel/entry-armv.o
+  AS      arch/arm/kernel/entry-common.o
+  LD      init/built-in.o
+  CC      arch/arm/kernel/irq.o
+  CC      arch/arm/kernel/process.o
+  CC      arch/arm/common/vic.o
+In file included from arch/arm/kernel/process.c:41:
+include/linux/kernel_sec_common.h:46:1: warning: "S3C_PA_WDT" redefined
+In file included from include/linux/kernel_sec_common.h:7,
+                 from arch/arm/kernel/process.c:41:
+arch/arm/mach-s5pv210/include/mach/map.h:215:1: warning: this is the location of the previous definition
+  CC      arch/arm/common/pl330.o
+  CC      arch/arm/mm/extable.o
+  CC      arch/arm/mach-s5pv210/cpu.o
+arch/arm/common/pl330.c: In function '_loop_ring':
+arch/arm/common/pl330.c:1130: warning: ISO C90 forbids mixed declarations and code
+arch/arm/common/pl330.c:1130: warning: unused variable 'j'
+arch/arm/common/pl330.c:1125: warning: unused variable 'lcnt0'
+  CC      arch/arm/mm/fault.o
+  CC      arch/arm/kernel/ptrace.o
+  CC      arch/arm/mach-s5pv210/init.o
+  CC      arch/arm/mm/init.o
+  LD      arch/arm/common/built-in.o
+  CC      arch/arm/kernel/return_address.o
+  CC      arch/arm/mach-s5pv210/clock.o
+  CC      arch/arm/plat-s5p/dev-uart.o
+arch/arm/mach-s5pv210/clock.c:380: warning: initialization from incompatible pointer type
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/mm/init.c:21:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+arch/arm/mm/init.c: In function 'mem_init':
+arch/arm/mm/init.c:644: warning: format '%08lx' expects type 'long unsigned int', but argument 12 has type 'unsigned int'
+  CC      arch/arm/kernel/setup.o
+  CC      arch/arm/plat-s5p/cpu.o
+  CC      arch/arm/mach-s5pv210/dma.o
+  CC      arch/arm/plat-s5p/clock.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/kernel/setup.c:36:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      arch/arm/mach-s5pv210/gpiolib.o
+  CC      arch/arm/plat-s5p/irq.o
+  CC      arch/arm/mm/iomap.o
+  CC      arch/arm/mach-s5pv210/setup-i2c0.o
+  CC      arch/arm/mm/fault-armv.o
+  CC      arch/arm/plat-s5p/devs.o
+  CC      arch/arm/mach-s5pv210/setup-i2c1.o
+  CC      arch/arm/mach-s5pv210/setup-i2c2.o
+  CC      arch/arm/kernel/signal.o
+  CC      arch/arm/mach-s5pv210/pm.o
+arch/arm/plat-s5p/devs.c:76: warning: 'usb_functions_acm_mtp' defined but not used
+  CC      arch/arm/mm/flush.o
+  CC      arch/arm/plat-s5p/bootmem.o
+  AS      arch/arm/mach-s5pv210/sleep.o
+  CC      arch/arm/mach-s5pv210/power-domain.o
+  CC      arch/arm/plat-s5p/irq-eint.o
+  CC      arch/arm/mm/ioremap.o
+  CC      arch/arm/kernel/sys_arm.o
+  CC      arch/arm/mach-s5pv210/mach-victory.o
+  CC      arch/arm/plat-s5p/irq-eint-group.o
+  CC      arch/arm/kernel/stacktrace.o
+  CC      arch/arm/mm/mmap.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/mach-s5pv210/mach-victory.c:40:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+In file included from arch/arm/mach-s5pv210/mach-victory.c:100:
+include/linux/kernel_sec_common.h:46:1: warning: "S3C_PA_WDT" redefined
+In file included from arch/arm/mach-s5pv210/mach-victory.c:42:
+arch/arm/mach-s5pv210/include/mach/map.h:215:1: warning: this is the location of the previous definition
+arch/arm/mach-s5pv210/mach-victory.c: In function 'ce147_power_en':
+arch/arm/mach-s5pv210/mach-victory.c:1844: warning: unused variable 'bd_level'
+arch/arm/mach-s5pv210/mach-victory.c: In function 'victory_power_off':
+arch/arm/mach-s5pv210/mach-victory.c:2802: warning: unused variable 'reset_mode'
+  CC      arch/arm/kernel/time.o
+arch/arm/mach-s5pv210/mach-victory.c: At top level:
+arch/arm/mach-s5pv210/mach-victory.c:3393: warning: function declaration isn't a prototype
+arch/arm/mach-s5pv210/include/mach/system.h:19: warning: 'arch_idle' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:232: warning: 'uart_switch_init' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:318: warning: 'nt35580' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:1876: warning: 'smdkc110_cam1_power' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:1985: warning: 's5ka3dfx_vga_avdd' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:2435: warning: 'i2c_devs8' defined but not used
+arch/arm/mach-s5pv210/mach-victory.c:3420: warning: 'k3g_irq_init' defined but not used
+  CC      arch/arm/plat-s5p/pm.o
+  CC      arch/arm/mm/pgd.o
+arch/arm/plat-s5p/pm.c:28: warning: 's3c_pm_check_resume_pin' defined but not used
+  CC      arch/arm/kernel/traps.o
+  CC      arch/arm/plat-s5p/irq-pm.o
+  CC      arch/arm/mm/mmu.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/mm/mmu.c:20:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      arch/arm/plat-s5p/hr-time-rtc.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/plat-s5p/hr-time-rtc.c:43:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      arch/arm/mach-s5pv210/aries-rfkill.o
+  CC      arch/arm/kernel/armksyms.o
+arch/arm/mach-s5pv210/aries-rfkill.c: In function 'bluetooth_set_sleep':
+arch/arm/mach-s5pv210/aries-rfkill.c:216: warning: unused variable 'ret'
+  CC      arch/arm/plat-s5p/dev-mfc.o
+  CC      arch/arm/mm/vmregion.o
+  CC      arch/arm/mach-s5pv210/aries-btlpm.o
+  CC      arch/arm/kernel/module.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/mach-s5pv210/aries-btlpm.c:18:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      arch/arm/plat-s5p/setup-mfc.o
+  CC      arch/arm/mm/proc-syms.o
+  LD      arch/arm/plat-s5p/built-in.o
+  CC      arch/arm/plat-samsung/init.o
+  CC      arch/arm/mach-s5pv210/aries-watchdog.o
+  CC      arch/arm/kernel/machine_kexec.o
+  CC      arch/arm/mm/alignment.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/kernel/machine_kexec.c:14:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+  CC      arch/arm/mach-s5pv210/aries-panel.o
+  CC      arch/arm/plat-samsung/clock.o
+arch/arm/mach-s5pv210/aries-panel.c:72:36: warning: "CONFIG_MACH_FORTE" is not defined
+  CC      arch/arm/mach-s5pv210/max8893_consumer.o
+  CC      arch/arm/mm/discontig.o
+  AS      arch/arm/kernel/relocate_kernel.o
+  CC      arch/arm/kernel/atags.o
+arch/arm/mach-s5pv210/max8893_consumer.c: In function 'max8893_consumer_suspend':
+arch/arm/mach-s5pv210/max8893_consumer.c:70: warning: unused variable 'pmic_controling_list'
+arch/arm/mach-s5pv210/max8893_consumer.c:70: warning: unused variable 'i'
+arch/arm/mach-s5pv210/max8893_consumer.c: In function 'max8893_consumer_resume':
+arch/arm/mach-s5pv210/max8893_consumer.c:92: warning: unused variable 'saved_control'
+arch/arm/mach-s5pv210/max8893_consumer.c:92: warning: unused variable 'i'
+  AS      arch/arm/mm/abort-ev7.o
+  CC      arch/arm/mach-s5pv210/sec_switch.o
+  AS      arch/arm/mm/pabort-v7.o
+  CC      arch/arm/plat-samsung/pwm-clock.o
+  AS      arch/arm/mm/cache-v7.o
+  CC      arch/arm/kernel/sys_oabi-compat.o
+  CC      arch/arm/mm/copypage-v6.o
+In file included from /home/steven/Android/Katana/Kernel/arch/arm/include/asm/mach-types.h:1,
+                 from arch/arm/mach-s5pv210/sec_switch.c:42:
+include/generated/mach-types.h:2953:1: warning: "MACH_TYPE_FORTE" redefined
+include/generated/mach-types.h:234:1: warning: this is the location of the previous definition
+arch/arm/mach-s5pv210/sec_switch.c: In function 'sec_switch_init_work':
+arch/arm/mach-s5pv210/sec_switch.c:226: warning: unused variable 'askon_sel'
+arch/arm/mach-s5pv210/sec_switch.c:226: warning: unused variable 'vtp_sel'
+arch/arm/mach-s5pv210/sec_switch.c:226: warning: unused variable 'mtp_sel'
+arch/arm/mach-s5pv210/sec_switch.c:226: warning: unused variable 'ums_sel'
+arch/arm/mach-s5pv210/sec_switch.c:226: warning: unused variable 'samsung_kies_sel'
+  CC      arch/arm/plat-samsung/gpio.o
+  CC      arch/arm/plat-samsung/gpio-config.o
+  CC      arch/arm/mm/context.o
+  CC      arch/arm/kernel/thumbee.o
+  CC      arch/arm/mach-s5pv210/dev-aries-phone.o
+  CC      arch/arm/plat-samsung/gpiolib.o
+  CC      arch/arm/kernel/pmu.o
+  AS      arch/arm/mm/tlb-v7.o
+  CC      arch/arm/mach-s5pv210/cpu-freq.o
+  AS      arch/arm/mm/proc-v7.o
+  CC      arch/arm/plat-samsung/clock-clksrc.o
+  LD      arch/arm/mm/built-in.o
+  CC      arch/arm/kernel/io.o
+  CC      arch/arm/vfp/vfpmodule.o
+arch/arm/mach-s5pv210/cpu-freq.c:926: error: expected expression before '<<' token
+arch/arm/mach-s5pv210/cpu-freq.c:932:24: error: invalid suffix "GHz" on floating constant
+make[1]: *** [arch/arm/mach-s5pv210/cpu-freq.o] Error 1
+make: *** [arch/arm/mach-s5pv210] Error 2
+make: *** Waiting for unfinished jobs....
+  AS      arch/arm/vfp/entry.o
+  AS      arch/arm/kernel/head.o
+  AS      arch/arm/vfp/vfphw.o
+  CC      arch/arm/kernel/init_task.o
+  CC      arch/arm/plat-samsung/irq-uart.o
+  CC      arch/arm/vfp/vfpsingle.o
+  CC      arch/arm/vfp/vfpdouble.o
+  CC      arch/arm/plat-samsung/irq-vic-timer.o
+  LDS     arch/arm/kernel/vmlinux.lds
+  LD      arch/arm/kernel/built-in.o
+  CC      arch/arm/plat-samsung/dev-hsmmc.o
+  CC      arch/arm/plat-samsung/dev-hsmmc1.o
+  CC      arch/arm/plat-samsung/dev-hsmmc2.o
+  CC      arch/arm/plat-samsung/dev-i2c0.o
+  CC      arch/arm/plat-samsung/dev-i2c1.o
+  CC      arch/arm/plat-samsung/dev-i2c2.o
+arch/arm/plat-samsung/dev-i2c1.c: In function 's3c_i2c1_force_stop':
+arch/arm/plat-samsung/dev-i2c1.c:77: warning: unused variable 'ioarea'
+  LD      arch/arm/vfp/vfp.o
+  LD      arch/arm/vfp/built-in.o
+  CC      arch/arm/plat-samsung/dev-uart.o
+  CC      arch/arm/plat-samsung/dev-wdt.o
+  CC      arch/arm/plat-samsung/s3c-pl330.o
+  CC      arch/arm/plat-samsung/pm.o
+  CC      arch/arm/plat-samsung/pm-gpio.o
+  CC      arch/arm/plat-samsung/pwm.o
+arch/arm/plat-samsung/pm.c: In function 's3c_pm_enter':
+arch/arm/plat-samsung/pm.c:315: warning: unused variable 'gpio'
+arch/arm/plat-samsung/pm.c: At top level:
+arch/arm/plat-samsung/pm.c:286: warning: 's3c_pm_show_resume_irqs' defined but not used
+  LD      arch/arm/plat-samsung/built-in.o
+cp: cannot stat `arch/arm/boot/zImage': No such file or directory
+~/Android/Katana
+Total compile time is 48 seconds
