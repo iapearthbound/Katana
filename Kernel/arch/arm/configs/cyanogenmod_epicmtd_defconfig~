@@ -1,19 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.35.7
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Wed Dec 14 05:35:43 2011
-=======
-# Mon Nov 21 16:46:06 2011
->>>>>>> cd2a13e... Remove CIQ line from dpram. Creates TtyCIQ0 in /dev
-=======
-# Mon Nov 21 16:58:25 2011
->>>>>>> 31ac00d... Removed CIQ from CM7 initramfs, better safe than sorry.
-=======
-# Tue Dec  6 20:51:25 2011
->>>>>>> 5de245d... First Set of commits for hard reset~Via Nubecoder.
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -97,11 +85,7 @@ CONFIG_SCHED_AUTOGROUP=y
 # CONFIG_RELAY is not set
 # CONFIG_NAMESPACES is not set
 CONFIG_BLK_DEV_INITRD=y
-<<<<<<< HEAD
 CONFIG_INITRAMFS_SOURCE="/home/steven/android/system/device/samsung/epicmtd/initramfs
-=======
-CONFIG_INITRAMFS_SOURCE="../initramfs_cm7"
->>>>>>> 31ac00d... Removed CIQ from CM7 initramfs, better safe than sorry.
 CONFIG_INITRAMFS_ROOT_UID=0
 CONFIG_INITRAMFS_ROOT_GID=0
 CONFIG_RD_GZIP=y
@@ -458,9 +442,7 @@ CONFIG_ZBOOT_ROM_BSS=0
 CONFIG_CMDLINE="console=ttySAC2,115200 init=/linuxrc"
 # CONFIG_CMDLINE_FORCE is not set
 # CONFIG_XIP_KERNEL is not set
-CONFIG_KEXEC=y
-CONFIG_ATAGS_PROC=y
-CONFIG_KEXEC_HARDBOOT=y
+# CONFIG_KEXEC is not set
 
 #
 # CPU Power Management
@@ -883,7 +865,6 @@ CONFIG_EXTRA_FIRMWARE=""
 # CONFIG_DEBUG_DEVRES is not set
 # CONFIG_SYS_HYPERVISOR is not set
 # CONFIG_CONNECTOR is not set
-<<<<<<< HEAD
 CONFIG_MTD=y
 # CONFIG_MTD_DEBUG is not set
 # CONFIG_MTD_TESTS is not set
@@ -897,11 +878,7 @@ CONFIG_MTD_PARTITIONS=y
 #
 # User Modules And Translation Layers
 #
-<<<<<<< HEAD
 CONFIG_MTD_CHAR=y
-=======
-# CONFIG_MTD_CHAR is not set
->>>>>>> cd2a13e... Remove CIQ line from dpram. Creates TtyCIQ0 in /dev
 CONFIG_MTD_BLKDEVS=y
 CONFIG_MTD_BLOCK=y
 # CONFIG_FTL is not set
@@ -974,9 +951,6 @@ CONFIG_MTD_ONENAND_SAMSUNG_AUDI=y
 # UBI - Unsorted block images
 #
 # CONFIG_MTD_UBI is not set
-=======
-# CONFIG_MTD is not set
->>>>>>> 31ac00d... Removed CIQ from CM7 initramfs, better safe than sorry.
 # CONFIG_PARPORT is not set
 CONFIG_BLK_DEV=y
 # CONFIG_BLK_DEV_COW_COMMON is not set
@@ -1563,8 +1537,6 @@ CONFIG_FB_S3C_NR_BUFFERS=2
 # CONFIG_FB_S3C_LTE480WV is not set
 # CONFIG_FB_S3C_HT101HD1 is not set
 CONFIG_FB_S3C_TL2796=y
-CONFIG_FB_VOODOO=y
-# CONFIG_FB_VOODOO_DEBUG_LOG is not set
 # CONFIG_FB_S3C_S6D16A0X is not set
 # CONFIG_FB_S3C_NT35580 is not set
 # CONFIG_FB_S3C_LVDS is not set
@@ -1915,9 +1887,7 @@ CONFIG_ONEDRAM_TX_RETRY=10
 #
 # TinyFSR Support for cramfs
 #
-CONFIG_TINY_FSR=y
-CONFIG_TINY_FLASH_PHYS_ADDR=0xB0000000
-CONFIG_LINUSTOREIII_TINY_DEBUG_VERBOSE=0
+# CONFIG_TINY_FSR is not set
 
 #
 # File systems
@@ -1991,6 +1961,21 @@ CONFIG_MISC_FILESYSTEMS=y
 # CONFIG_BEFS_FS is not set
 # CONFIG_BFS_FS is not set
 # CONFIG_EFS_FS is not set
+CONFIG_YAFFS_FS=y
+CONFIG_YAFFS_YAFFS1=y
+# CONFIG_YAFFS_9BYTE_TAGS is not set
+# CONFIG_YAFFS_DOES_ECC is not set
+CONFIG_YAFFS_YAFFS2=y
+CONFIG_YAFFS_AUTO_YAFFS2=y
+# CONFIG_YAFFS_DISABLE_TAGS_ECC is not set
+# CONFIG_YAFFS_DISABLE_WIDE_TNODES is not set
+# CONFIG_YAFFS_ALWAYS_CHECK_CHUNK_ERASED is not set
+CONFIG_YAFFS_SHORT_NAMES_IN_RAM=y
+# CONFIG_YAFFS_EMPTY_LOST_AND_FOUND is not set
+# CONFIG_YAFFS_DISABLE_BLOCK_REFRESHING is not set
+# CONFIG_YAFFS_DISABLE_BACKGROUND is not set
+CONFIG_YAFFS_XATTR=y
+# CONFIG_JFFS2_FS is not set
 # CONFIG_LOGFS is not set
 CONFIG_CRAMFS=y
 # CONFIG_SQUASHFS is not set

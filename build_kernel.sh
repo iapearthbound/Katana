@@ -53,7 +53,7 @@ DEFCONFIG_STRING=cyanogenmod_epicmtd_defconfig
 
 #TOOLCHAIN=`pwd`/toolchains/android-toolchain-4.4.3/bin
 #TOOLCHAIN_PREFIX=arm-linux-androideabi-
-TOOLCHAIN=/home/steven/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
+TOOLCHAIN=/home/steven/Android/android_prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
 TOOLCHAIN_PREFIX=arm-eabi-
 
 KERNEL_BUILD_DIR=`pwd`/Kernel
@@ -108,7 +108,7 @@ BUILD_KERNEL()
 		make ARCH=arm $DEFCONFIG_STRING
 		make -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$TOOLCHAIN/$TOOLCHAIN_PREFIX 2>&1 | tee make.out
 #		make V=1 -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$TOOLCHAIN/$TOOLCHAIN_PREFIX 2>&1 | tee make.out
-		cp arch/arm/boot/zImage /home/steven/android/system/device/samsung/epicmtd/kernel
+		cp arch/arm/boot/zImage /home/steven/Android/create_boot.img/
 	popd
 }
 
