@@ -432,13 +432,13 @@ void s5p_set_otg_dvfs(int enable)
 {
 
 	if (enable) {
-		s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L1); //800MHz lock
+		s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L7); //800MHz lock
 	} else {
 		s5pv210_unlock_dvfs_high_level(DVFS_LOCK_TOKEN_8);
 	}
 
   if (enable) {
-                s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L5); //800MHz lock
+                s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_8,L7); //800MHz lock
         } else {
                 s5pv210_unlock_dvfs_high_level(DVFS_LOCK_TOKEN_8);
         }

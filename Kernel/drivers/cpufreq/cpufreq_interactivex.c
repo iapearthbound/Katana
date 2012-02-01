@@ -28,6 +28,10 @@
 
 #include <asm/cputime.h>
 
+#ifdef CONFIG_MACH_VICTORY
+#include <mach/cpu-freq-v210.h>
+#endif
+
 static void (*pm_idle_old)(void);
 static atomic_t active_count = ATOMIC_INIT(0);
 
@@ -62,7 +66,7 @@ static unsigned int samples = 0;
  * The minimum ammount of time to spend at a frequency before we can ramp down,
  * default is 50ms.
  */
-#define DEFAULT_MIN_SAMPLE_TIME 44000;
+#define DEFAULT_MIN_SAMPLE_TIME 40000;
 static unsigned long min_sample_time;
 
 static int cpufreq_governor_interactivex(struct cpufreq_policy *policy,
